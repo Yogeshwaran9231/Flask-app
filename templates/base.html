@@ -1,0 +1,141 @@
+<html>
+    <head>
+        <title>Daily Checklist</title>
+    </head>
+    <link rel="stylesheet" href="mystyle.css">
+<style>
+
+    body
+    {
+        text-align: center;
+        color:rgb(19, 19, 109);
+        width:auto;
+    }
+    #headings
+    {
+        width: 1500px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 24px;
+        
+
+    }
+    table,th,td 
+    {
+        margin-left: auto;
+        margin-right: auto;
+        border: 1.5px solid black;
+        border-collapse: collapse;
+        text-align: center; 
+        line-height: 2;
+        color:rgb(19, 19, 109);
+        padding-left: 10px;
+        padding-right:10px;   
+       
+    }
+  .Checking-description
+    {
+        text-align: justify;
+        width: 660px;
+    }
+    #submittingArea
+    {
+        line-height: 2.5;
+        margin-left: auto;
+        margin-right: auto;
+        text-align:center;
+        width: 1500px;
+        
+    }
+    button
+	{
+        color: white;
+		background-color:rgb(19, 19, 109);
+		border-color: rgb(255, 255, 255);
+		padding: 10px 15px;
+		border-radius: 8px;
+        margin-left: auto;
+        margin-right: auto;
+	}
+    label 
+	{
+		font-size:24;
+		text-align:center;
+		color: rgb(19, 19, 109);
+        border-color:rgb(24, 24, 49);
+        margin-left: auto;
+	}
+    #entry-details
+    {
+        
+        margin-right: 20%;
+        line-height: 1.5;
+        text-align: right;
+        width: 1500px;
+        margin-left: auto;
+        margin-right: auto;
+			
+			
+    }
+    input{
+        outline-style: outset;
+        text-align: right;
+        font-size: 20;
+		text-align:left;
+	    color: rgb(19, 19, 109);
+    }
+    img
+        {
+            width: 48px;
+            height:48px
+
+        }
+</style>
+
+<form method="post" action="/submit">
+    <body id="checkPage">
+        <div id="headingArea">
+            <table id = "headings">
+                <th rowspan="4" style="width:300"><img src="https://iconape.com/wp-content/files/ms/160229/png/lmw-logo.png" id="image"></th>
+                <tr><td>LAKSHMI MACHINE WORKS</td></tr>
+                <tr><td>ADVANCED TECHNOLOGY CENTRE</td></tr>
+                <tr><td>DAILY CHECK LIST</td></tr>
+            </table>
+        </div>
+        <div id="entry-details">
+            <label id="machineNumber">Machine Number :</label>
+            <input type="text" id="machine-number"><br>
+            <label id="date">Date:</label>
+            <input type="text" id="date">
+        </div>
+        <div id="tableArea">
+            <br>
+            <table>
+                <thead id="tableHeadings">
+                    <tr>
+                        <th>S.NO</th>
+                        <th>Checklist</th>
+                        <th>Checkpoints</th>
+                        <th>Checked</th>
+                    </tr>
+                </thead>
+                {% for check in checkpoint %}
+                    <tr id="rows">
+                        <td>{{check.serialNumber}}</td>
+                        <td class="Checking-description">{{check.checklist}}</td>
+                        <td class="Checking-description">{{check.checkpoints}}</td>
+                        <td><input type="checkbox"></td>
+                        </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div id="submittingArea">
+            <label id="result" style="padding-left: 60px;">Result :</label>
+            <input type="text" id="result"><br>
+            <label id="EmployeeId">Employee ID:</label>
+            <input type="text" id="employeeId"><br>
+            <button>Submit</button>
+        </div>
+    </body>
+</form>
+</html>
