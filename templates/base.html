@@ -92,7 +92,7 @@
         }
 </style>
 
-<form method="post" action="/submit">
+<form action = "http://localhost:5000/success" method = "POST">
     <body id="checkPage">
         <div id="headingArea">
             <table id = "headings">
@@ -103,10 +103,10 @@
             </table>
         </div>
         <div id="entry-details">
-            <label id="machineNumber">Machine Number :</label>
-            <input type="text" id="machine-number"><br>
-            <label id="date">Date:</label>
-            <input type="text" id="date">
+            <label for="machine-number">Machine Number :</label>
+            <input type="text" id="machine-number" name="Machine-Number"><br>
+            <label for="date">Date:</label>
+            <input type="text" id="date" name="Date">
         </div>
         <div id="tableArea">
             <br>
@@ -124,16 +124,16 @@
                         <td>{{check.serialNumber}}</td>
                         <td class="Checking-description">{{check.checklist}}</td>
                         <td class="Checking-description">{{check.checkpoints}}</td>
-                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox" name="checked"></td>
                         </tr>
                 {% endfor %}
             </table>
         </div>
         <div id="submittingArea">
             <label id="result" style="padding-left: 60px;">Result :</label>
-            <input type="text" id="result"><br>
+            <input type="text" id="result" name="Result"><br>
             <label id="EmployeeId">Employee ID:</label>
-            <input type="text" id="employeeId"><br>
+            <input type="text" id="employeeId" name="EmployeeID"><br>
             <button>Submit</button>
         </div>
     </body>
