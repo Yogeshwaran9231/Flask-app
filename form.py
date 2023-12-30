@@ -4,6 +4,8 @@ from oauth2client.service_account import ServiceAccountCredentials
 
 app = Flask(__name__)
 
+
+
 @app.route('/home')
 def checkpoints():
     checkpoint=[{'serialNumber':'1', 'checklist':"Check for general cleanliness", 'checkpoints':"Should Free from dirt and oil"},
@@ -19,6 +21,12 @@ def checkpoints():
                 {'serialNumber':'11', 'checklist':"	Check work offset value after switching on the machine", 'checkpoints':"To ensure that the previous work offset value matches with existing value"},
                 {'serialNumber':'12', 'checklist':"Check work offset value whenever is power restored after power failure", 'checkpoints':"To ensure that the previous work offset value matches with existing value"}]
     return render_template("base.html",checkpoint=checkpoint)
+
+@app.route('/success', methods=['POST', 'GET'])
+def print_data():
+    if request.method == 'POST':
+        result = request.form
+        return render_template("result.html", result=result)
 
 if __name__ == '__main__':  
    app.run(debug = True)  
