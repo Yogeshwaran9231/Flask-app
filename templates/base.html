@@ -91,6 +91,16 @@
 
         }
 </style>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script>
+    // Initialize the datepicker
+    $(function() {
+        $("#datepicker").datepicker();
+    });
+</script>
 
 <form action = "http://localhost:5000/success" method = "POST">
     <body id="checkPage">
@@ -105,8 +115,9 @@
         <div id="entry-details">
             <label for="machine-number">Machine Number :</label>
             <input type="text" id="machine-number" name="Machine-Number"><br>
-            <label for="date">Date:</label>
-            <input type="text" id="date" name="Date">
+            <label for="datepicker">Select a date:</label>
+            <input type="text" id="datepicker" name="selectedDate" readonly>
+
         </div>
         <div id="tableArea">
             <br>
